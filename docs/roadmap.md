@@ -22,7 +22,7 @@ APIs, plugin systems, databases, render queues, and cloud rendering.
 
 ## Phases
 
-### Phase 0 — FFmpeg baseline (current)
+### Phase 0 — FFmpeg baseline (complete)
 
 Generate and verify a direct FFmpeg render.
 
@@ -33,7 +33,7 @@ Completion criteria:
 - video ends with the audio
 - output contains H.264 video and AAC audio
 
-### Phase 1 — Slow zoom
+### Phase 1 — Slow zoom (current)
 
 Add image scaling, cropping, and a restrained slow zoom while preserving the
 verified output properties.

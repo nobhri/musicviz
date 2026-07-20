@@ -20,14 +20,10 @@ layer for validation, configuration, command construction, and execution.
 
 ## Project status
 
-The project is currently in the direct FFmpeg prototyping stage. A basic
-static-artwork render has been produced, but it does not yet meet every target:
-the current real-song output is 25 fps and its video stream runs longer than
-the audio stream.
-
-The next milestone is a verified direct FFmpeg render at 1080 × 1920 and
-30 fps that ends with the audio. Slow zoom, waveform, and text will be added to
-that command before it is wrapped in Python.
+The direct FFmpeg baseline is verified with a five-second WAV fixture at
+1080 × 1920 and 30 fps, with matching video and audio stream durations. The
+project is now in the slow-zoom phase. Waveform and text will be added to the
+direct command in later playable increments before it is wrapped in Python.
 
 See:
 
