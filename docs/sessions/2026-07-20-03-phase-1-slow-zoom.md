@@ -11,8 +11,8 @@ Date: 2026-07-20
 - Advanced the roadmap to Phase 2 waveform.
 - Split current render evidence, historical experiments, and fixture-generation
   commands into focused documents.
-- Split the root agent instructions into a short entry point and scoped files
-  under `.agents/`.
+- Split the root agent instructions into a short entry point and ordinary
+  supporting documents under `docs/agent-guides/`.
 
 ## Decisions
 
@@ -25,6 +25,9 @@ Date: 2026-07-20
   `docs/render-spike.md`.
 - Put reusable verification rules in the required development guide rather than
   relying on this retrospective to influence future sessions.
+- Keep split, repository-wide agent guidance under `docs/agent-guides/` and
+  link it explicitly from `AGENTS.md`. The directory is organizational, not a
+  special Codex discovery mechanism.
 
 ## What went wrong
 

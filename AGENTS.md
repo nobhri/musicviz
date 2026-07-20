@@ -18,14 +18,15 @@ task:
 - [docs/development-guide.md](docs/development-guide.md)
 - [docs/render-spike.md](docs/render-spike.md)
 
-Also read the applicable split instructions:
+The following are ordinary repository documents, not automatically discovered
+Codex instruction files. Read the applicable guides through these links:
 
-- [.agents/project-scope.md](.agents/project-scope.md) for product and technical
-  boundaries
-- [.agents/repository-workflow.md](.agents/repository-workflow.md) before
-  changing files or using Git/GitHub
-- [.agents/session-notes.md](.agents/session-notes.md) when continuing or ending
-  a session
+- [docs/agent-guides/project-scope.md](docs/agent-guides/project-scope.md) for
+  product and technical boundaries
+- [docs/agent-guides/repository-workflow.md](docs/agent-guides/repository-workflow.md)
+  before changing files or using Git/GitHub
+- [docs/agent-guides/session-notes.md](docs/agent-guides/session-notes.md) when
+  continuing or ending a session
 
 Follow the roadmap in order. Do not build Python scaffolding before the direct
 FFmpeg output is visually and technically correct.
