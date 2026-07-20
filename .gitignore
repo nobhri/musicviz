@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Local input media and generated renders
+/input/
+/output/
+
+# Python artifacts used in later phases
+__pycache__/
+*.py[cod]
+.venv/
