@@ -60,6 +60,13 @@ Do not add large media fixtures without explicit approval.
 
 ## Git workflow
 
+- Run networked `gh` commands and networked Git operations such as push, pull,
+  and fetch with host/escalated permissions rather than in the sandbox. The
+  sandbox may not have access to the system keyring or GitHub network, causing
+  false authentication or connection failures.
+- If a sandboxed `gh` command reports an invalid token or network failure,
+  retry the relevant read-only check with host/escalated permissions before
+  asking the user to re-authenticate.
 - Use a new feature branch for each independent task or session.
 - Start from the latest `main` and use `main` as the pull-request base.
 - Do not continue a branch from a previous session unless the user asks.
