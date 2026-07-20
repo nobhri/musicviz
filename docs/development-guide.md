@@ -57,6 +57,11 @@ or plugin interfaces until multiple real implementations require them.
 ## FFmpeg rules
 
 - Pass all arguments as `list[str]` and make paths explicit.
+- Require an FFmpeg build with the filters used by the known-good pipeline,
+  including `drawtext`. On the development Mac, this is the keg-only Homebrew
+  `ffmpeg-full` build at `/opt/homebrew/opt/ffmpeg-full/bin/ffmpeg`.
+- Validate required filter availability and report a clear error rather than
+  failing later with an opaque filtergraph error.
 - Prefer `-filter_complex_script` when escaping the filtergraph becomes hard.
 - Prefer `drawtext=textfile=` over embedding arbitrary project text.
 - Preserve FFmpeg stderr and check the process return code.

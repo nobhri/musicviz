@@ -42,12 +42,12 @@ the verified output properties.
 
 Add a white semi-transparent waveform near the bottom using FFmpeg filters.
 
-### Phase 3 — Text (current)
+### Phase 3 — Text (complete)
 
 Add readable title and artist text with an explicit font. Prefer
 `drawtext=textfile=` when project-provided text is introduced.
 
-### Phase 4 — Minimal Python wrapper
+### Phase 4 — Minimal Python wrapper (current)
 
 Preserve the known-good FFmpeg behavior in a small Python script using
 `pathlib.Path`, `subprocess.run`, and a `list[str]` command. Validate FFmpeg and

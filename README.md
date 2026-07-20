@@ -20,11 +20,11 @@ layer for validation, configuration, command construction, and execution.
 
 ## Project status
 
-The direct FFmpeg pipeline now includes a verified slow zoom and synchronized
-white semi-transparent waveform using five-second WAV fixtures at 1080 × 1920
-and 30 fps, with matching video and audio stream durations. The project is now
-in the text phase. Text will be added to the direct command as another playable
-increment before the pipeline is wrapped in Python.
+The direct FFmpeg pipeline now includes a verified slow zoom, synchronized
+white semi-transparent waveform, and readable title and artist text using
+five-second WAV fixtures at 1080 × 1920 and 30 fps, with matching video and
+audio stream durations. Phase 3 is complete. The project is now ready to
+preserve the known-good direct pipeline in the Phase 4 minimal Python wrapper.
 
 See:
 
@@ -71,6 +71,8 @@ output: output/video.mp4
 
 - Python orchestrates FFmpeg through `subprocess.run` with argument lists.
 - FFmpeg handles rendering, audio processing, and waveform generation.
+- The current text pipeline requires a `drawtext`-capable FFmpeg build. On the
+  development Mac, use Homebrew `ffmpeg-full` explicitly.
 - Paths use `pathlib.Path` and errors remain explicit.
 - Fixed visual settings are preferred until real publishing work demonstrates
   a need for configuration.

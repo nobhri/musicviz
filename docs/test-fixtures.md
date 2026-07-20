@@ -72,4 +72,17 @@ disappears during silence, and shows more structure than the continuous
 single-frequency sine fixture. It is a diagnostic input, not a target musical
 sound.
 
+## Text
+
+Create short UTF-8 text files for the Phase 3 title and artist inputs:
+
+```bash
+printf '%s\n' 'My New Song' > input/title.txt
+printf '%s\n' 'Nobuaki' > input/artist.txt
+```
+
+The verified filtergraph reads these files with `drawtext=textfile=` rather
+than embedding project-provided strings in the filtergraph. This avoids FFmpeg
+expression escaping problems and matches the intended later project inputs.
+
 Do not commit large or real-song media fixtures without explicit approval.
