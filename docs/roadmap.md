@@ -47,13 +47,13 @@ Add a white semi-transparent waveform near the bottom using FFmpeg filters.
 Add readable title and artist text with an explicit font. Prefer
 `drawtext=textfile=` when project-provided text is introduced.
 
-### Phase 4 — Minimal Python wrapper (current)
+### Phase 4 — Minimal Python wrapper (complete)
 
 Preserve the known-good FFmpeg behavior in a small Python script using
 `pathlib.Path`, `subprocess.run`, and a `list[str]` command. Validate FFmpeg and
 input-file availability and preserve useful stderr on failure.
 
-### Phase 5 — Project configuration
+### Phase 5 — Project configuration (current)
 
 Move only audio, artwork, title, artist, and output path into a small YAML file.
 Keep visual and encoding settings fixed until real projects require otherwise.

@@ -170,18 +170,30 @@ a fixed treatment is insufficient.
 
 ## Next experiment
 
-Preserve this known-good direct command in the Phase 4 minimal Python wrapper.
-Start with a small script using `pathlib.Path`, `subprocess.run`, and a
-`list[str]` command; do not introduce project YAML or the final CLI yet. The
-wrapper must select a `drawtext`-capable FFmpeg executable, validate the input
-files, obtain the audio duration needed by the fixture-specific timing values,
-and preserve useful stderr when rendering fails.
+Move only the audio, artwork, title, artist, and output path into the Phase 5
+project configuration. Keep the verified visual and encoding settings fixed.
+Resolve project-relative paths from the project file rather than the caller's
+working directory, and keep the Python wrapper small; do not introduce the
+final CLI yet.
+
+## Verified Phase 4 Python wrapper
+
+`scripts/make_video.py` preserves the Phase 3 filtergraph in a `list[str]`
+FFmpeg command. It explicitly selects Homebrew `ffmpeg-full`, validates
+FFmpeg, ffprobe, `drawtext`, the development inputs, and the fixed fonts, then
+uses ffprobe to obtain the audio duration. The duration determines both the
+output limit and the slow-zoom denominator at the fixed 30 fps.
+
+The wrapper rendered `output/phase-4-python-wrapper.mp4` from the five-second
+fixtures. The complete output played in ffplay, and ffprobe reported H.264 and
+AAC streams, 1080 × 1920 dimensions, `yuv420p`, 30 fps, 150 video frames, and
+matching five-second video, audio, and container durations.
 
 ## Fixture-specific values
 
-The denominator `149` and `-t 5` belong to the five-second fixture. The later
-Python wrapper must obtain the input duration and calculate the last output
-frame index at the fixed 30 fps.
+The direct-command denominator `149` and `-t 5` belong to the five-second
+fixture. The Python wrapper now obtains the input duration and calculates the
+last output frame index at the fixed 30 fps.
 
 ## Verification
 
