@@ -105,3 +105,18 @@ Add tests as the corresponding features appear, in this order:
 Integration fixtures should last only a few seconds. Do not add an extensive
 visual golden-master suite in Version 0. Visual output must still be played and
 inspected at meaningful render milestones.
+
+## Visual media verification
+
+- Do not infer continuous motion from extracted first and final frames. Those
+  frames prove only that two endpoints differ.
+- Play the complete output in at least one user-relevant player. When playback
+  behavior is disputed, reproduce it in the same player and compare with
+  `ffplay` when available.
+- For frame-dependent filters, prefer expressions derived directly from an
+  explicit frame or time variable. Verify that intermediate frames change, not
+  only the endpoints.
+- Treat encoder statistics and frame hashes as supporting evidence, not a
+  substitute for full playback.
+- Do not mark a visual phase complete until the user can observe the intended
+  effect in their normal playback path when user verification is available.

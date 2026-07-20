@@ -20,15 +20,20 @@ layer for validation, configuration, command construction, and execution.
 
 ## Project status
 
-The direct FFmpeg baseline is verified with a five-second WAV fixture at
-1080 × 1920 and 30 fps, with matching video and audio stream durations. The
-project is now in the slow-zoom phase. Waveform and text will be added to the
-direct command in later playable increments before it is wrapped in Python.
+The direct FFmpeg pipeline now includes a verified clearly visible slow zoom
+using a five-second WAV fixture at 1080 × 1920 and 30 fps, with matching video
+and audio stream durations. The project is now in the waveform phase. Waveform
+and text will be added to the direct command in separate playable increments
+before it is wrapped in Python.
 
 See:
 
 - [FFmpeg render spike](docs/render-spike.md) for commands, observed output,
   and the next experiment
+- [Test fixtures](docs/test-fixtures.md) for generating the development artwork
+  and audio inputs
+- [Render history](docs/render-history.md) for completed direct FFmpeg
+  experiments
 - [Version 0 roadmap](docs/roadmap.md) for development order, scope, and the
   definition of done
 - [Development guide](docs/development-guide.md) for implementation, FFmpeg,
