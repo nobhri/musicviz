@@ -33,12 +33,12 @@ Completion criteria:
 - video ends with the audio
 - output contains H.264 video and AAC audio
 
-### Phase 1 — Slow zoom (current)
+### Phase 1 — Slow zoom (complete)
 
-Add image scaling, cropping, and a restrained slow zoom while preserving the
-verified output properties.
+Add image scaling, cropping, and a clearly visible slow zoom while preserving
+the verified output properties.
 
-### Phase 2 — Waveform
+### Phase 2 — Waveform (current)
 
 Add a white semi-transparent waveform near the bottom using FFmpeg filters.
 
