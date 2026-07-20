@@ -51,4 +51,25 @@ ffprobe \
 WAV avoids lossy-codec delay and keeps timing checks predictable. MP3 remains
 a required real-song input, but a duplicate MP3 fixture is not yet needed.
 
+## Rhythmic harmonics audio
+
+Generate a five-second validation input with ten clearly separated sound
+events. Each event lasts 220 ms and is followed by 280 ms of silence. The tone
+combines a 110 Hz fundamental with harmonics at 220, 330, and 440 Hz, while a
+smooth envelope prevents clicks at the event boundaries:
+
+```bash
+ffmpeg \
+  -f lavfi \
+  -i "aevalsrc=exprs='(0.55*sin(2*PI*110*t)+0.25*sin(2*PI*220*t)+0.12*sin(2*PI*330*t)+0.08*sin(2*PI*440*t))*if(lt(mod(t\,0.5)\,0.22)\,pow(sin(PI*mod(t\,0.5)/0.22)\,2)\,0)':s=44100:d=5" \
+  -ac 2 \
+  -c:a pcm_s16le \
+  input/rhythmic-harmonics.wav
+```
+
+Use this fixture to verify that a waveform appears during each audible event,
+disappears during silence, and shows more structure than the continuous
+single-frequency sine fixture. It is a diagnostic input, not a target musical
+sound.
+
 Do not commit large or real-song media fixtures without explicit approval.

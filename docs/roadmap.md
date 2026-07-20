@@ -38,11 +38,11 @@ Completion criteria:
 Add image scaling, cropping, and a clearly visible slow zoom while preserving
 the verified output properties.
 
-### Phase 2 — Waveform (current)
+### Phase 2 — Waveform (complete)
 
 Add a white semi-transparent waveform near the bottom using FFmpeg filters.
 
-### Phase 3 — Text
+### Phase 3 — Text (current)
 
 Add readable title and artist text with an explicit font. Prefer
 `drawtext=textfile=` when project-provided text is introduced.
