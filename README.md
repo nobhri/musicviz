@@ -20,11 +20,11 @@ layer for validation, configuration, command construction, and execution.
 
 ## Project status
 
-The direct FFmpeg pipeline now includes a verified clearly visible slow zoom
-using a five-second WAV fixture at 1080 × 1920 and 30 fps, with matching video
-and audio stream durations. The project is now in the waveform phase. Waveform
-and text will be added to the direct command in separate playable increments
-before it is wrapped in Python.
+The direct FFmpeg pipeline now includes a verified slow zoom and synchronized
+white semi-transparent waveform using five-second WAV fixtures at 1080 × 1920
+and 30 fps, with matching video and audio stream durations. The project is now
+in the text phase. Text will be added to the direct command as another playable
+increment before the pipeline is wrapped in Python.
 
 See:
 
