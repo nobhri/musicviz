@@ -170,11 +170,23 @@ a fixed treatment is insufficient.
 
 ## Next experiment
 
-Move only the audio, artwork, title, artist, and output path into the Phase 5
-project configuration. Keep the verified visual and encoding settings fixed.
-Resolve project-relative paths from the project file rather than the caller's
-working directory, and keep the Python wrapper small; do not introduce the
-final CLI yet.
+Add the single Phase 6 CLI operation, `musicviz render project.yaml`, without
+changing the verified render pipeline or introducing additional commands.
+
+## Verified Phase 5 project configuration
+
+`project.yaml` now supplies only the audio, artwork, title, artist, and output
+path. Relative paths resolve from the project file rather than the caller's
+working directory. Project text is written to temporary UTF-8 files and passed
+to the existing `drawtext=textfile=` filters; all visual and encoding settings
+remain fixed.
+
+The Python environment and its PyYAML dependency are locked with uv. Tests now
+use pytest, and Ruff provides the minimal linting and formatting checks. The
+checked-in development project rendered `output/phase-5-project-config.mp4`.
+The render passed automated ffprobe assertions for H.264, AAC, 1080 x 1920,
+`yuv420p`, 30 fps, and five-second duration, and played to completion in
+ffplay.
 
 ## Verified Phase 4 Python wrapper
 

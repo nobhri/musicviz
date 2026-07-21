@@ -1,0 +1,9 @@
+version: 1
+
+audio: input/audio.wav
+artwork: input/artwork.png
+
+title: "My New Song"
+artist: "Nobuaki"
+
+output: output/phase-5-project-config.mp4

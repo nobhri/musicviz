@@ -97,6 +97,30 @@ exception handling such as `except Exception`.
 External-command failures should identify what failed and preserve useful
 diagnostic output.
 
+## Python environment and development tools
+
+Use uv to manage the Python version, runtime dependencies, development tools,
+and lockfile. Phase 4 deliberately used only the standard library; uv was added
+in Phase 5 when YAML parsing introduced the first runtime dependency. Keep this
+usage focused on reproducible environments. It does not justify packaging the
+application before the Phase 6 CLI needs it.
+
+Use PyYAML with `safe_load` rather than maintaining a project-specific YAML
+parser. The project schema remains small and is validated explicitly after
+parsing.
+
+Use pytest for both unit and integration tests. It replaced the standard
+library `unittest` runner when configuration work introduced repeated invalid
+inputs, temporary project directories, and generated media fixtures. Prefer
+pytest's built-in fixtures and parametrization; do not add pytest plugins
+without a concrete need.
+
+Use Ruff as the single formatter and linter. Its purpose is fast, consistent
+baseline checks with one tool, not adoption of a broad or highly customized
+rule set. Keep its configuration small. Do not add pre-commit hooks until
+missed local checks become a demonstrated workflow problem; CI should enforce
+required checks when CI is introduced.
+
 ## Testing priorities
 
 Add tests as the corresponding features appear, in this order:
@@ -107,9 +131,19 @@ Add tests as the corresponding features appear, in this order:
 4. a short integration render; and
 5. `ffprobe` verification of the output.
 
-Integration fixtures should last only a few seconds. Do not add an extensive
-visual golden-master suite in Version 0. Visual output must still be played and
-inspected at meaningful render milestones.
+Generate small integration-test artwork and audio inside pytest so a checkout
+does not depend on ignored development inputs. Integration fixtures should
+last only a few seconds. Do not add an extensive visual golden-master suite in
+Version 0. Visual output must still be played and inspected at meaningful
+render milestones.
+
+Run the current automated checks through the locked uv environment:
+
+```bash
+uv run pytest
+uv run ruff check .
+uv run ruff format --check .
+```
 
 ## Visual media verification
 
