@@ -53,12 +53,14 @@ Preserve the known-good FFmpeg behavior in a small Python script using
 `pathlib.Path`, `subprocess.run`, and a `list[str]` command. Validate FFmpeg and
 input-file availability and preserve useful stderr on failure.
 
-### Phase 5 — Project configuration (current)
+### Phase 5 — Project configuration (complete)
 
 Move only audio, artwork, title, artist, and output path into a small YAML file.
 Keep visual and encoding settings fixed until real projects require otherwise.
 
 ### Phase 6 — CLI
+
+This is the current phase.
 
 Support one primary operation:
 

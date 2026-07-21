@@ -20,11 +20,11 @@ layer for validation, configuration, command construction, and execution.
 
 ## Project status
 
-The known-good FFmpeg pipeline is now preserved in a minimal Python wrapper.
-It validates the local tools and inputs, obtains the audio duration, builds the
-FFmpeg argument list, and renders the verified slow zoom, waveform, title, and
-artist treatment. Phase 4 is complete. The project is ready to move the five
-project-specific values into a small YAML file in Phase 5.
+The known-good FFmpeg pipeline now reads its five project-specific values from
+a small YAML file. It resolves paths relative to that file, validates the local
+tools and inputs, obtains the audio duration, and renders the verified slow
+zoom, waveform, title, and artist treatment. Phase 5 is complete. The project
+is ready to add its single Version 0 CLI operation in Phase 6.
 
 See:
 
@@ -41,15 +41,16 @@ See:
 
 ## Intended usage
 
-The first Python wrapper may be run as:
+Install the locked dependencies and render a project with:
 
 ```bash
-python scripts/make_video.py
+uv sync
+uv run python scripts/make_video.py project.yaml
 ```
 
-It currently reads the development inputs under `input/` and writes
-`output/phase-4-python-wrapper.mp4`. See [Test fixtures](docs/test-fixtures.md)
-for creating those ignored local inputs.
+The checked-in `project.yaml` reads the development inputs under `input/` and
+writes `output/phase-5-project-config.mp4`. See
+[Test fixtures](docs/test-fixtures.md) for creating those ignored local inputs.
 
 The later Version 0 CLI is intended to support:
 
@@ -73,6 +74,7 @@ output: output/video.mp4
 
 ## Technical direction
 
+- Python dependencies and development tools are managed with uv.
 - Python orchestrates FFmpeg through `subprocess.run` with argument lists.
 - FFmpeg handles rendering, audio processing, and waveform generation.
 - The current text pipeline requires a `drawtext`-capable FFmpeg build. On the

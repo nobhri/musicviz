@@ -111,6 +111,17 @@ Integration fixtures should last only a few seconds. Do not add an extensive
 visual golden-master suite in Version 0. Visual output must still be played and
 inspected at meaningful render milestones.
 
+Run the current automated checks through the locked uv environment:
+
+```bash
+uv run pytest
+uv run ruff check .
+uv run ruff format --check .
+```
+
+Ruff and pytest are intentionally the only development tools at present. Do
+not add commit hooks or more tooling until repository use demonstrates a need.
+
 ## Visual media verification
 
 - Do not infer continuous motion from extracted first and final frames. Those
