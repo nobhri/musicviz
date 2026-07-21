@@ -58,9 +58,7 @@ input-file availability and preserve useful stderr on failure.
 Move only audio, artwork, title, artist, and output path into a small YAML file.
 Keep visual and encoding settings fixed until real projects require otherwise.
 
-### Phase 6 — CLI
-
-This is the current phase.
+### Phase 6 — CLI (complete)
 
 Support one primary operation:
 
@@ -69,6 +67,8 @@ musicviz render project.yaml
 ```
 
 ### Phase 7 — Real-song validation
+
+This is the current phase.
 
 Render three real song projects without code changes. Fix recurring publishing
 problems, not hypothetical extension points.

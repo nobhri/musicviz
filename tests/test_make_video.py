@@ -3,7 +3,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts.make_video import (
+from musicviz.render import (
     ProjectConfig,
     RenderError,
     build_ffmpeg_command,
