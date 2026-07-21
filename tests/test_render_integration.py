@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from scripts.make_video import (
+from musicviz.render import (
     ARTIST_FONT,
     FFMPEG,
     FFPROBE,

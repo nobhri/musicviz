@@ -4,9 +4,8 @@
 import math
 import os
 import subprocess
-import sys
 import tempfile
-from collections.abc import Mapping, Sequence
+from collections.abc import Mapping
 from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
@@ -257,24 +256,3 @@ def render(config: ProjectConfig) -> None:
         title_file.write_text(config.title, encoding="utf-8")
         artist_file.write_text(config.artist, encoding="utf-8")
         run_ffmpeg(build_ffmpeg_command(config, duration, title_file, artist_file))
-
-
-def main(argv: Sequence[str] | None = None) -> int:
-    arguments = list(sys.argv[1:] if argv is None else argv)
-    if len(arguments) != 1:
-        print("usage: python scripts/make_video.py PROJECT.yaml", file=sys.stderr)
-        return 2
-
-    try:
-        config = load_config(Path(arguments[0]))
-        render(config)
-    except RenderError as error:
-        print(f"error: {error}", file=sys.stderr)
-        return 1
-
-    print(f"Rendered {config.output}")
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())

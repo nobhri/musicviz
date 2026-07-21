@@ -168,10 +168,34 @@ Prefer one fixed Version 0 treatment that works across real projects. Do not
 add per-project visual configuration until repeated publishing tests show that
 a fixed treatment is insufficient.
 
+## Known text limitation
+
+The current title and artist treatment uses fixed Arial font files. Project
+text is read from YAML and passed to FFmpeg through UTF-8 text files, but Arial
+does not contain Japanese glyphs. Japanese titles and artist names therefore
+render as missing or incorrect characters. This is a font-coverage limitation,
+not a YAML or UTF-8 decoding problem. Select and verify a Japanese-capable fixed
+font during Phase 7 real-song validation before treating Japanese text as
+supported.
+
 ## Next experiment
 
-Add the single Phase 6 CLI operation, `musicviz render project.yaml`, without
-changing the verified render pipeline or introducing additional commands.
+Render three real song projects through `musicviz render project.yaml` without
+code changes. Use representative artwork and fix only recurring publishing
+problems demonstrated by those renders.
+
+## Verified Phase 6 CLI
+
+The installed `musicviz` command now exposes the single Version 0 operation,
+`musicviz render project.yaml`. The implementation uses a small Python package
+and delegates configuration loading, validation, command construction, and
+rendering to the Phase 5 behavior without changing the project schema or
+FFmpeg pipeline.
+
+The checked-in project rendered `output/phase-6-cli.mp4` through the new
+command. Automated tests cover command dispatch, successful rendering, render
+errors, and invalid command-line arguments in addition to the existing unit
+and integration coverage.
 
 ## Verified Phase 5 project configuration
 

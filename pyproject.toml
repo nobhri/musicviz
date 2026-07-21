@@ -1,3 +1,7 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "musicviz"
 version = "0.1.0"
@@ -7,6 +11,9 @@ dependencies = [
     "pyyaml>=6.0",
 ]
 
+[project.scripts]
+musicviz = "musicviz.cli:main"
+
 [dependency-groups]
 dev = [
     "pytest>=8.0",
@@ -14,7 +21,10 @@ dev = [
 ]
 
 [tool.uv]
-package = false
+package = true
+
+[tool.setuptools]
+packages = ["musicviz"]
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
