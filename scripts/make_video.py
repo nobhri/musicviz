@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """Render the fixed MusicViz Version 0 pipeline from a project file."""
 
-from __future__ import annotations
-
 import math
 import os
 import subprocess

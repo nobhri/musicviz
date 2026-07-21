@@ -26,8 +26,8 @@
 
 - Ran `uv run ruff check .`; all checks passed.
 - Ran `uv run ruff format --check .`; all files were formatted.
-- Ran `uv run pytest -q`; all 11 tests passed, including a five-second FFmpeg
-  render and ffprobe assertions.
+- Ran `uv run pytest -q`; all 11 tests passed, including a generated
+  half-second FFmpeg fixture render and ffprobe assertions.
 - Rendered `output/phase-5-project-config.mp4` from the checked-in project file.
 - Confirmed H.264 video, AAC audio, 1080 x 1920, `yuv420p`, 30 fps, and a
   five-second duration.
@@ -39,6 +39,10 @@
 - Running pytest from uv did not initially put the repository root on the
   import path. Declaring the root in the pytest configuration made test imports
   explicit and independent of the executable location.
+- The first integration test reused ignored development inputs and skipped when
+  they were absent. That would not exercise rendering in a fresh CI checkout,
+  so the test now generates its own small artwork and audio fixtures. CI will
+  still need to provision the explicitly required FFmpeg build and fonts.
 - Dependency and test-tool setup became worthwhile when Phase 5 introduced a
   real runtime dependency and filesystem-heavy configuration tests; adding it
   during the standard-library-only Phase 4 would not have advanced a render.
