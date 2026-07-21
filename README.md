@@ -20,11 +20,11 @@ layer for validation, configuration, command construction, and execution.
 
 ## Project status
 
-The direct FFmpeg pipeline now includes a verified slow zoom, synchronized
-white semi-transparent waveform, and readable title and artist text using
-five-second WAV fixtures at 1080 × 1920 and 30 fps, with matching video and
-audio stream durations. Phase 3 is complete. The project is now ready to
-preserve the known-good direct pipeline in the Phase 4 minimal Python wrapper.
+The known-good FFmpeg pipeline is now preserved in a minimal Python wrapper.
+It validates the local tools and inputs, obtains the audio duration, builds the
+FFmpeg argument list, and renders the verified slow zoom, waveform, title, and
+artist treatment. Phase 4 is complete. The project is ready to move the five
+project-specific values into a small YAML file in Phase 5.
 
 See:
 
@@ -46,6 +46,10 @@ The first Python wrapper may be run as:
 ```bash
 python scripts/make_video.py
 ```
+
+It currently reads the development inputs under `input/` and writes
+`output/phase-4-python-wrapper.mp4`. See [Test fixtures](docs/test-fixtures.md)
+for creating those ignored local inputs.
 
 The later Version 0 CLI is intended to support:
 
